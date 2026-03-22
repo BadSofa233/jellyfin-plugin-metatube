@@ -50,29 +50,29 @@ public class MovieImageProvider : BaseProvider, IRemoteImageProvider, IHasOrder
                 Type = ImageType.Thumb,
                 Url = ApiClient.GetThumbImageApiUrl(m.Provider, m.Id)
             },
-            new()
-            {
-                ProviderName = Name,
-                Type = ImageType.Backdrop,
-                Url = ApiClient.GetBackdropImageApiUrl(m.Provider, m.Id)
-            }
+            // new()
+            // {
+            //     ProviderName = Name,
+            //     Type = ImageType.Backdrop,
+            //     Url = ApiClient.GetBackdropImageApiUrl(m.Provider, m.Id)
+            // }
         };
 
         foreach (var imageUrl in m.PreviewImages ?? Enumerable.Empty<string>())
         {
-            images.Add(new RemoteImageInfo
-            {
-                ProviderName = Name,
-                Type = ImageType.Primary,
-                Url = ApiClient.GetPrimaryImageApiUrl(m.Provider, m.Id, imageUrl, pid.Position ?? -1)
-            });
+            // images.Add(new RemoteImageInfo
+            // {
+            //     ProviderName = Name,
+            //     Type = ImageType.Primary,
+            //     Url = ApiClient.GetPrimaryImageApiUrl(m.Provider, m.Id, imageUrl, pid.Position ?? -1)
+            // });
 
-            images.Add(new RemoteImageInfo
-            {
-                ProviderName = Name,
-                Type = ImageType.Thumb,
-                Url = ApiClient.GetThumbImageApiUrl(m.Provider, m.Id, imageUrl)
-            });
+            // images.Add(new RemoteImageInfo
+            // {
+            //     ProviderName = Name,
+            //     Type = ImageType.Thumb,
+            //     Url = ApiClient.GetThumbImageApiUrl(m.Provider, m.Id, imageUrl)
+            // });
 
             images.Add(new RemoteImageInfo
             {
