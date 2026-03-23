@@ -73,13 +73,16 @@ public class MovieImageProvider : BaseProvider, IRemoteImageProvider, IHasOrder
             //     Type = ImageType.Thumb,
             //     Url = ApiClient.GetThumbImageApiUrl(m.Provider, m.Id, imageUrl)
             // });
-
-            images.Add(new RemoteImageInfo
+            string previewImageUrl = ApiClient.GetBackdropImageApiUrl(m.Provider, m.Id, imageUrl);
+            if (!previewImageUrl.Contains("now_printing"))
             {
-                ProviderName = Name,
-                Type = ImageType.Backdrop,
-                Url = ApiClient.GetBackdropImageApiUrl(m.Provider, m.Id, imageUrl)
-            });
+                images.Add(new RemoteImageInfo
+                {
+                    ProviderName = Name,
+                    Type = ImageType.Backdrop,
+                    Url = previewImageUrl
+                });
+            }
         }
 
         return images;
